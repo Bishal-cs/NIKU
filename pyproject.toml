@@ -6,4 +6,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "dotenv>=0.9.9",
+    "groq>=0.5.0",
+    "edge-tts>=6.1.9",
+    "cohere>=5.3.3",
+    "requests>=2.20.0", # Added requests for API calls
 ]
