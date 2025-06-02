@@ -1,9 +1,8 @@
-\
 import json
 import os
 from datetime import datetime
 
-DEFAULT_LOG_FILE = "conversation_log.json"
+DEFAULT_LOG_FILE = 'logs/niku_chat_history.json'
 
 class ConversationHistory:
     """
@@ -26,7 +25,7 @@ class ConversationHistory:
         """Loads conversation history from the JSON file."""
         if os.path.exists(self.log_file):
             try:
-                with open(self.log_file, \'r\', encoding=\'utf-8\') as f:
+                with open(self.log_file, 'r', encoding= 'utf-8') as f:
                     return json.load(f)
             except (json.JSONDecodeError, IOError) as e:
                 print(f"Error loading history from {self.log_file}: {e}. Starting with empty history.")
@@ -36,9 +35,9 @@ class ConversationHistory:
     def _save_history(self):
         """Saves the current conversation history to the JSON file."""
         try:
-            # Create directory if it doesn\'t exist
+            # Create directory if it doesn't exist
             os.makedirs(os.path.dirname(self.log_file), exist_ok=True)
-            with open(self.log_file, \'w\', encoding=\'utf-8\') as f:
+            with open(self.log_file, 'w', encoding='utf-8') as f:
                 json.dump(self.history, f, indent=4, ensure_ascii=False)
         except IOError as e:
             print(f"Error saving history to {self.log_file}: {e}")
@@ -82,7 +81,7 @@ class ConversationHistory:
         self._save_history()
         print(f"Conversation history cleared from {self.log_file}")
 
-if __name__ == \'__main__\':
+if __name__ == "__main__":
     # Example Usage
     # To save logs in a 'logs' subdirectory:
     # log_dir = os.path.join(os.path.dirname(__file__), \'..\', \'logs\') # Assuming niku/logs
@@ -95,7 +94,7 @@ if __name__ == \'__main__\':
 
     print(f"Initial history (loaded from {memory.log_file}):")
     for msg in memory.get_history():
-        print(f"- [{msg[\'timestamp\']}] {msg[\'role\']}: {msg[\'content\']}")
+        print(f"- [{msg['timestamp']}] {msg['role']}: {msg['content']}")
 
     print("\\nAdding new messages...")
     memory.add_message("user", "Hello Niku!")
@@ -105,7 +104,7 @@ if __name__ == \'__main__\':
 
     print("\\nUpdated history:")
     for msg in memory.get_history():
-        print(f"- [{msg[\'timestamp\']}] {msg[\'role\']}: {msg[\'content\']}")
+        print(f"- [{msg['timestamp']}] {msg['role']}: {msg['content']}")
 
     # Example of exceeding max_history_len
     if memory.max_history_len:
@@ -117,7 +116,7 @@ if __name__ == \'__main__\':
 
         print("\\nFinal history (should be truncated if over limit):")
         for msg in memory.get_history():
-            print(f"- [{msg[\'timestamp\']}] {msg[\'role\']}: {msg[\'content\']}")
+            print(f"- [{msg['timestamp']}] {msg['role']}: {msg['content']}")
 
     # memory.clear_history()
     # print("\\nHistory after clearing:")

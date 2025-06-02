@@ -1,9 +1,9 @@
-\
 import asyncio
 import edge_tts
 import os
 
-async def text_to_speech(text: str, voice: str = "en-US-AriaNeural", output_file: str = "response.mp3") -> str:
+output_file = "logs/response.mp3"
+async def text_to_speech(text: str, voice: str = "en-US-AriaNeural", output_file: str = output_file) -> str:
     """
     Converts text to speech using Edge TTS and saves it to an audio file.
 
