@@ -1,0 +1,27 @@
+[
+    {
+        "role": "assistant",
+        "content": "Bees can recognize human faces!",
+        "timestamp": "2025-06-02T12:55:50.483630Z"
+    },
+    {
+        "role": "user",
+        "content": "What is the capital of France?",
+        "timestamp": "2025-06-02T12:55:50.486201Z"
+    },
+    {
+        "role": "assistant",
+        "content": "The capital of France is Paris.",
+        "timestamp": "2025-06-02T12:55:50.488212Z"
+    },
+    {
+        "role": "user",
+        "content": "And the capital of Japan?",
+        "timestamp": "2025-06-02T12:55:50.489212Z"
+    },
+    {
+        "role": "assistant",
+        "content": "That would be Tokyo!",
+        "timestamp": "2025-06-02T12:55:50.491220Z"
+    }
+]
