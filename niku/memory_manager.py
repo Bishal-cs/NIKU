@@ -57,7 +57,7 @@ class ConversationHistory:
         message = {
             "role": role,
             "content": content,
-            "timestamp": datetime.utcnow().isoformat() + "Z" # ISO 8601 format
+            "timestamp": datetime.now().isoformat(), # ISO 8601 format
         }
         self.history.append(message)
 
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     # memory = ConversationHistory(log_file=conversation_log_path, max_history_len=10)
 
     # Default usage (saves in the script's directory or CWD if run directly)
-    memory = ConversationHistory(log_file="niku_chat_history.json", max_history_len=5)
+    memory = ConversationHistory(log_file= DEFAULT_LOG_FILE, max_history_len=5)
 
     print(f"Initial history (loaded from {memory.log_file}):")
     for msg in memory.get_history():
